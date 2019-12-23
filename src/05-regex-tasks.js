@@ -32,7 +32,7 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-  return /\{[FECcf\d]{8}-[faAEF\d]{4}-[Dc\d]{4}-[ACDb\d]{4}-[ECBDd\d]{12}\}/;
+  return /^\{[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}\}$/i;
 }
 
 
@@ -79,7 +79,7 @@ function getRegexForPitSpot() {
  *   'Pa55'.match(validator) => false
  */
 function getPasswordValidator(minLength) {
-  return new RegExp(`^((?=\\w*[A-Z])(?=\\w*[a-z])(?=\\w*[0-9])[a-zA-Z0-9]{${minLength},})$`);
+  return new RegExp(`^((?=\\w*[A-Z])(?=\\w*[a-z])(?=\\w*\\d)[a-zA-Z0-9]{${minLength},})$`);
 }
 
 
